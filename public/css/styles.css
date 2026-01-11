@@ -1,6 +1,256 @@
-/******* Change Box Model ***************/
-*,
-*:before,
-*:after {
+/* ========== RESET / BASE ========== */
+* {
   box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+  color: #111;
+}
+
+.hero {
+  position: relative;
+  padding: 1rem 0;
+}
+
+.hero-title {
+  margin: 1rem;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.hero-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.hero-image img {
+  width: 100%;
+  height: auto;
+}
+
+/* TEXT OVER IMAGE */
+.hero-text {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 1rem;
+  border-radius: 6px;
+}
+
+
+/* Title spacing */
+.hero-text h2 {
+  margin-top: 0;
+}
+
+/* ========== HOME PAGE ========== */
+.home {
+  padding: 1rem;
+}
+
+/* HERO */
+.hero {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* TEXT OVER IMAGE */
+.hero-text {
+  position: absolute;
+  top: 35%;
+  left: 8%;
+  width: 90%;
+  max-width: 360px;   /* bigger but still controlled */
+  background-color: rgba(255, 255, 255, 0.85);
+  padding: 1.25rem;
+  border-radius: 6px;
+}
+
+
+.hero-text h2 {
+  margin-top: 0;
+}
+
+
+.vehicle-name {
+  color: #0a5ea8;
+}
+
+.features {
+  padding-left: 1.2rem;
+}
+
+.btn-primary {
+  display: inline-block;
+  padding: 0.6rem 1rem;
+  background-color: #0a8ecf;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+/* ========== HEADER ========== */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  color: #000000;
+  padding: 1rem;
+}
+
+.siteName a {
+  color: #000000;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+#tools a {
+  color: #000000;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+header a:hover {
+  text-decoration: underline;
+}
+
+
+
+/* ========== NAVIGATION ========== */
+nav {
+  background-color: #292929;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  color: #ffffff;
+}
+
+nav li {
+  flex: 1;
+}
+
+nav a {
+  display: block;
+  padding: 0.75rem;
+  text-align: center;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover,
+nav a:focus {
+  background-color: #444;
+}
+
+#wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #fff;
+}
+
+
+/* REVIEWS */
+.reviews {
+  margin-top: 2rem;
+}
+
+.reviews ul {
+  padding-left: 1.2rem;
+}
+
+/* UPGRADES */
+.upgrades {
+  margin-top: 2rem;
+}
+
+.upgrade-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.upgrade-grid figure {
+  background-color: #0aa3c2;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.upgrade-grid a {
+  color: #003344;
+  font-weight: bold;
+}
+
+.features {
+  padding-left: 1.2rem;
+}
+
+.btn-primary {
+  display: inline-block;
+  margin-top: 0.75rem;
+}
+
+
+/* ========== DESKTOP LAYOUT ========== */
+@media screen and (min-width: 768px) {
+
+  .hero {
+    display: flex;
+    flex-direction: column;
+    grid-column: 1 / -1;
+    padding: 1rem;
+  }
+
+ .hero-container {
+    position: relative;
+    display: flex;
+  }
+
+  .hero-image {
+    text-align: center;
+  }
+
+  .hero-image img {
+    max-width: 600px;
+  }
+
+  .hero-text {
+    position: absolute;
+    top: 35%;
+    left: 10%;
+    width: 280px;          /* CONTROLLED size */
+    margin-top: 0;
+  }
+
+  /* Below hero layout */
+  .reviews,
+  .upgrades {
+    margin-top: 0;
+  }
+
+  .home {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+  }
+
+  .upgrades {
+    order: 1;
+  }
+
+  .reviews {
+    order: 2;
+  }
 }
