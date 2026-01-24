@@ -1,23 +1,20 @@
-<% if (title) { %>
-  <h1><%= title %></h1>
-<% } %>
-
-<p>
-  😅 Oops! Something went wrong.
-</p>
-
-<p>
-  <% if (message) { %>
-    <%- message %>
-  <% } else { %>
-    The server is having a small existential crisis.
+<div class="error-container">
+  <% if (title) { %>
+    <h1><%= title %></h1>
   <% } %>
-</p>
 
-<p>
-  🤖 This was not part of the plan, but here we are.
-</p>
+  <p>😅 Oops! Something went wrong.</p>
 
-<p>
+  <p>
+    <% if (message) { %>
+      <%- message %>
+    <% } else { %>
+      The server is having a small existential crisis.
+    <% } %>
+  </p>
+
+  <p>🤖 This was not part of the plan, but here we are.</p>
+
   <a href="/">Go back home</a>
-</p>
+</div>
+

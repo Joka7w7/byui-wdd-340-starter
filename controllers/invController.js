@@ -20,3 +20,26 @@ invCont.buildByClassificationId = async function (req, res, next) {
 }
 
   module.exports = invCont
+
+/* ***************************
+ *  Build inventory detail view
+ * ************************** */
+invCont.buildByInventoryId = async function (req, res, next) {
+  const inv_id = req.params.inv_id
+  const data = await invModel.getInventoryByInventoryId(inv_id)
+  const vehicleHTML = await utilities.buildInventoryDetail(data)
+  let nav = await utilities.getNav()
+
+  res.render("./inventory/detail", {
+    title: `${data.inv_make} ${data.inv_model}`,
+    nav,
+    vehicleHTML,
+  })
+}
+
+/* ***************************
+ * Intentional error trigger
+ * ************************** */
+invCont.triggerError = async function (req, res, next) {
+  throw new Error("Intentional Server Error")
+}

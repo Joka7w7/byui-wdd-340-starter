@@ -254,3 +254,143 @@ nav a:focus {
     order: 2;
   }
 }
+
+/* ========== VEHICLE DETAIL PAGE ========== */
+.vehicle-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+.vehicle-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+.vehicle-info h2 {
+  margin-top: 0;
+}
+
+.price {
+  font-size: 1.4rem;
+  color: #0a5ea8;
+}
+
+/* Desktop layout */
+@media screen and (min-width: 768px) {
+  .vehicle-detail {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .vehicle-image,
+  .vehicle-info {
+    flex: 1;
+  }
+}
+
+/* ========== INVENTORY CLASSIFICATION GRID ========== */
+
+#inv-display {
+  list-style: none;
+  padding: 1rem;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+#inv-display li {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background-color: #ffffff;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#inv-display li:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+#inv-display img {
+  width: 100%;
+  height: 180px;
+  object-fit: contain;     /* SHOW FULL IMAGE */
+  object-position: center;
+  background-color: #f4f4f4; /* fills empty space nicely */
+}
+
+.namePrice {
+  padding: 0.75rem;
+  text-align: center;
+}
+
+.namePrice h2 {
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+}
+
+.namePrice a {
+  text-decoration: none;
+  color: #0a5ea8;
+}
+
+.namePrice a:hover {
+  text-decoration: underline;
+}
+
+.namePrice span {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #111;
+}
+
+/* Desktop grid */
+@media screen and (min-width: 768px) {
+  #inv-display {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+}
+
+/* ========== ERROR PAGE ========== */
+
+.error-container {
+  max-width: 600px;
+  margin: 3rem auto;
+  padding: 2rem;
+  text-align: center;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #fafafa;
+}
+
+.error-container h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #b00020;
+}
+
+.error-container p {
+  font-size: 1.05rem;
+  margin-bottom: 1rem;
+}
+
+.error-container a {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  background-color: #0a8ecf;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.error-container a:hover {
+  background-color: #087bb5;
+}
+
