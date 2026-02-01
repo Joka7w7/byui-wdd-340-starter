@@ -1,0 +1,17 @@
+<h1>Add Classification</h1>
+
+<%- messages() %>
+
+<form class="inventory-form" action="/inv/add-classification" method="post">
+  <label for="classification_name">Classification Name</label>
+  <input
+    type="text"
+    id="classification_name"
+    name="classification_name"
+    pattern="^[A-Za-z0-9]+$"
+    required
+  />
+  <small>No spaces or special characters.</small>
+
+  <button type="submit">Add Classification</button>
+</form>
