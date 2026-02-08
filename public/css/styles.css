@@ -427,6 +427,13 @@ nav a:focus {
   border-left: 5px solid #ffc107;
 }
 
+.flash-messages .info {
+  background-color: #e8f4fd;
+  color: #084298;
+  border-left: 5px solid #0d6efd;
+}
+
+
 /* ========== Login ========== */
 
 .account-login {
@@ -575,4 +582,41 @@ input:required:valid {
 
 .inventory-form button:hover {
   background-color: #1e40af;
+}
+
+/* Disabled button */
+button:disabled,
+input[type="submit"]:disabled {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+button:disabled:hover {
+  background-color: #ccc;
+}
+
+/* Enabled button */
+button {
+  background-color: #0d6efd;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 5px;
+}
+
+button:hover:not(:disabled) {
+  background-color: #0b5ed7;
+}
+
+#tools {
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* ← THIS creates space */
+}
+
+.separator {
+  margin: 0 0.5rem;
+  color: #999;
 }

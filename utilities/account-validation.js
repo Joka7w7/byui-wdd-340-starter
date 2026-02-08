@@ -114,4 +114,82 @@ validate.checkLoginData = async (req, res, next) => {
   next()
 }
 
+/* ******************************
+ * Account Update Rules
+ * ***************************** */
+validate.accountUpdateRules = () => {
+  return [
+    body("account_firstname")
+      .trim()
+      .notEmpty()
+      .withMessage("First name is required."),
+    body("account_lastname")
+      .trim()
+      .notEmpty()
+      .withMessage("Last name is required."),
+    body("account_email")
+      .trim()
+      .isEmail()
+      .withMessage("A valid email is required."),
+  ]
+}
+
+/* ******************************
+ * Check Account Update Data
+ * ***************************** */
+validate.checkAccountUpdateData = async (req, res, next) => {
+  const { account_id, account_email } = req.body
+  let errors = validationResult(req)
+
+  if (!errors.isEmpty()) {
+    const accountData = await accountModel.getAccountById(account_id)
+    return res.render("account/update", {
+      title: "Update Account",
+      nav: await utilities.getNav(),
+      errors: errors.array(),
+      accountData,
+    })
+  }
+  next()
+}
+
+/* **********************************
+ *  Password Update Validation Rules
+ * ********************************* */
+validate.passwordRules = () => {
+  return [
+    body("account_password")
+      .trim()
+      .notEmpty()
+      .isStrongPassword({
+        minLength: 12,
+        minLowercase: 1,
+        minUppercase: 1,
+        minNumbers: 1,
+        minSymbols: 1,
+      })
+      .withMessage("Password does not meet requirements."),
+  ]
+}
+
+/* **********************************
+ *  Check Password Update Data
+ * ********************************* */
+validate.checkPasswordData = async (req, res, next) => {
+  const { account_id } = req.body
+  const errors = validationResult(req)
+
+  if (!errors.isEmpty()) {
+    const accountData = await accountModel.getAccountById(account_id)
+    return res.render("account/update", {
+      title: "Update Account",
+      nav: await utilities.getNav(),
+      errors: errors.array(),
+      accountData,
+    })
+  }
+  next()
+}
+
+
 module.exports = validate

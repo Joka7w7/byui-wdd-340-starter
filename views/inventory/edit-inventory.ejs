@@ -1,0 +1,51 @@
+<h1><%= title %></h1>
+
+<%- messages() %>
+
+<form
+  id="updateForm"
+  class="inventory-form"
+  action="/inv/update"
+  method="post"
+>
+  <label>Classification</label>
+  <%- classificationSelect %>
+
+  <label>Make</label>
+  <input type="text" name="inv_make" required value="<%= inv_make %>">
+
+  <label>Model</label>
+  <input type="text" name="inv_model" required value="<%= inv_model %>">
+
+  <label>Year</label>
+  <input type="number" name="inv_year" required value="<%= inv_year %>">
+
+  <label>Description</label>
+  <textarea name="inv_description" required><%= inv_description %></textarea>
+
+  <label>Image Path</label>
+  <input type="text" name="inv_image" required value="<%= inv_image %>">
+
+  <label>Thumbnail Path</label>
+  <input type="text" name="inv_thumbnail" required value="<%= inv_thumbnail %>">
+
+  <label>Price</label>
+  <input type="number" name="inv_price" required value="<%= inv_price %>">
+
+  <label>Miles</label>
+  <input type="number" name="inv_miles" required value="<%= inv_miles %>">
+
+  <label>Color</label>
+  <input type="text" name="inv_color" required value="<%= inv_color %>">
+
+  <!-- REQUIRED hidden primary key -->
+  <input type="hidden" name="inv_id"
+    <% if (locals.inv_id) { %>
+      value="<%= inv_id %>"
+    <% } %>
+  >
+
+  <button type="submit" disabled>Update Vehicle</button>
+</form>
+
+<script src="/js/inv-update.js"></script>
